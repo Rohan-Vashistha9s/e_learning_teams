@@ -1,0 +1,162 @@
+#ex-course {
+    margin: 50px auto 20px auto;
+    background: url('assest/media/side-wave_background.jpg');
+    padding: 160px 20px 20px 20px;
+    background-size: 70% 100%;
+    background-repeat: no-repeat;
+    background-position: right;
+}
+#ex-in{
+    max-width: 1100px;
+    margin: 20px auto;
+    padding: 20px;
+
+}
+#ex-in h1{
+    font-size: 2.3rem;
+    font-weight: 600;
+    color: #000000d3;
+}
+#ex-in p{
+    color: #0000008A;
+
+}
+.ex-title {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 100px;
+}
+.ex-title h4{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.ex-title p{
+    color: #00BCD4 !important;
+}
+.ex-c-list{
+    max-width: 1100px;
+    margin: 40px auto;
+    display: block;
+}
+.ex-list-data{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    margin: 20px 10px 90px 10px;
+}
+.ex-book{
+    height: 100%;
+   
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    transform: rotate(-10deg);
+    padding: 8px;
+    margin: 10px;
+}
+.ex-book .ex-d-01{
+    background-color: #83efc7ee;
+    /* padding: 20px; */
+    height: 100%;
+   
+    padding: 8px;
+    border-radius: 10px;
+}
+.ex-book-img{
+   margin: 0px 30px;
+}
+
+.ex-book .ex-d-02{
+
+    padding: 4px ;
+    width: 30px;
+    height: 100% !important;
+    border-radius: 5px;
+}
+ .exb-01
+{
+    background-color: #FF6F00;
+
+}
+ .exb-02
+{
+    background-color: #FF8374 !important;
+
+}
+ .exb-03
+{
+    background-color: #B45A1B;
+
+}
+ .exb-04
+{
+    background-color: #FFB300;
+
+}
+ .exb-05
+{
+    background-color: #C583FF;
+
+}
+ .exb-06
+{
+    background-color: #00A8FF;
+
+}
+ .exb-07
+{
+    background-color: #6DB4A7;
+
+}
+.ex-book .ex-d-02 div{
+ width: 200px;
+ transform: rotate(90deg);
+ transform-origin: left 23px;
+ text-align: center;
+ color: white;
+
+}
+
+/* ex-book mobile  */
+
+#ex-mob-course{
+    max-width: 1140px;
+    margin: 30px auto;
+    padding: 20px;
+    /* background-color: #54AFF0; */
+    display: none;
+}
+.ex-m-book{
+    
+   
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+  
+    padding: 8px;
+    margin: 10px;
+}
+.ex-m-book .ex-book-mob{
+    background-color: #83efc7ee;
+    /* padding: 20px; */
+
+   
+    padding: 8px;
+    border-radius: 10px;
+}
+.exb-01 , .exb-02 ,.exb-03,.exb-04,.exb-05,.exb-06,.exb-07
+{
+    
+    border-radius: 10px;
+
+}
+.ex-m-book .ex-mob-02 div{
+
+
+ transform-origin: left 23px;
+ text-align: center;
+ color: white;
+
+}
