@@ -20,7 +20,7 @@ function Navbar() {
           <h4 className="w-[200px] text-white font-medium">TOTC</h4>
         </div>
         <div className="h-link space-x-4">
-          <ul className="flex space-x-12 text-white cursor-pointer">
+          <ul className="flex space-x-12 space-y-2 text-white cursor-pointer">
             <li>
                 <Link to="/">Home</Link>
             </li>

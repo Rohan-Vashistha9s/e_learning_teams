@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Courses.css";
 import heroImg01 from "../assest/media/heroimg-01.png";
 import personImg01 from "../assest/media/personimg-01.png";
@@ -7,8 +7,33 @@ import heroImg03 from "../assest/media/heroimg-03.png";
 import courseimg01 from "../assest/media/courseimg-01.png";
 import courseimg02 from "../assest/media/courseimg-02.png";
 import Navbar from '../MainNav/Navbar';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPaintbrush, faDisplay, faDatabase, faBriefcase, faBullhorn, faBook, faMasksTheater, faBorderAll, faClock } from '@fortawesome/free-solid-svg-icons';
+
 
 const Courses = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+    const lessons = [
+        { id: 1, img: heroImg01, title: 'AWS Certified Solutions Architect', reviewImg: personImg01, reviewer: 'Lina', progress: '71%', lessonInfo: 'Lesson 5 of 7' },
+        { id: 2, img: heroImg02, title: 'AWS Certified Solutions Architect', reviewImg: personImg01, reviewer: 'Lina', progress: '71%', lessonInfo: 'Lesson 5 of 7' },
+        { id: 3, img: heroImg03, title: 'AWS Certified Solutions Architect', reviewImg: personImg01, reviewer: 'Lina', progress: '71%', lessonInfo: 'Lesson 5 of 7' },
+        { id: 4, img: heroImg01, title: 'AWS Certified Solutions Architect', reviewImg: personImg01, reviewer: 'Lina', progress: '71%', lessonInfo: 'Lesson 5 of 7' },
+        { id: 5, img: heroImg02, title: 'AWS Certified Solutions Architect', reviewImg: personImg01, reviewer: 'Lina', progress: '71%', lessonInfo: 'Lesson 5 of 7' },
+        { id: 6, img: heroImg03, title: 'AWS Certified Solutions Architect', reviewImg: personImg01, reviewer: 'Lina', progress: '71%', lessonInfo: 'Lesson 5 of 7' },
+    ];
+
+    const nextSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === lessons.length - 1 ? 0 : prevIndex + 1
+        );
+    };
+
+    const prevSlide = () => {
+        setCurrentIndex((prevIndex) =>
+            prevIndex === 0 ? lessons.length - 1 : prevIndex - 1
+        );
+    };
   return (
     <div>
         <Navbar />
@@ -18,82 +43,27 @@ const Courses = () => {
                 <h6>View history</h6>
             </div>
             <div className="lessons slider container">
-                <div className="lesson-card card">
-                    <img src={heroImg01} alt="Lesson 1" />
-                    <h1>AWS Certified Solutions Architect</h1>
-                    <div className="review">
-                        <img src={personImg01} alt="" />
-                        <h4>Lina</h4>
-                    </div>
-                    <div className="progress-container">
-                        <div className="progress-bar" style={{width: "71%"}}></div>
-                    </div>
-                    <p>Lesson 5 of 7</p>
-                </div>
-                <div className="lesson-card card">
-                    <img src={heroImg02} alt="Lesson 2" />
-                    <h1>AWS Certified Solutions Architect</h1>
-                    <div className="review">
-                        <img src={personImg01} alt="" />
-                        <h4>Lina</h4>
-                    </div>
-                    <div className="progress-container">
-                        <div className="progress-bar" style={{width: "71%"}}></div>
-                    </div>
-                    <p>Lesson 5 of 7</p>
-                </div>
-                <div className="lesson-card card">
-                    <img src={heroImg03} alt="Lesson 3" />
-                    <h1>AWS Certified Solutions Architect</h1>
-                    <div className="review">
-                        <img src={personImg01} alt="" />
-                        <h4>Lina</h4>
-                    </div>
-                    <div className="progress-container">
-                        <div className="progress-bar" style={{width: "71%"}}></div>
-                    </div>
-                    <p>Lesson 5 of 7</p>
-                </div>
-                <div className="lesson-card card">
-                    <img src={heroImg01} alt="Lesson 1" />
-                    <h1>AWS Certified Solutions Architect</h1>
-                    <div className="review">
-                        <img src={personImg01} alt="" />
-                        <h4>Lina</h4>
-                    </div>
-                    <div className="progress-container">
-                        <div className="progress-bar" style={{width: "71%"}}></div>
-                    </div>
-                    <p>Lesson 5 of 7</p>
-                </div>
-                <div className="lesson-card card">
-                    <img src={heroImg02} alt="Lesson 2" />
-                    <h1>AWS Certified Solutions Architect</h1>
-                    <div className="review">
-                        <img src={personImg01} alt="" />
-                        <h4>Lina</h4>
-                    </div>
-                    <div className="progress-container">
-                        <div className="progress-bar" style={{width: "71%"}}></div>
-                    </div>
-                    <p>Lesson 5 of 7</p>
-                </div>
-                <div className="lesson-card card">
-                    <img src={heroImg03} alt="Lesson 3" />
-                    <h1>AWS Certified Solutions Architect</h1>
-                    <div className="review">
-                        <img src={personImg01} alt="" />
-                        <h4>Lina</h4>
-                    </div>
-                    <div className="progress-container">
-                        <div className="progress-bar" style={{width: "71%"}}></div>
-                    </div>
-                    <p>Lesson 5 of 7</p>
+                <div className="lesson-track" style={{ transform: `translateX(-${currentIndex * 100 / lessons.length}%)` }}>
+                    {lessons.map((lesson, index) => (
+                        <div key={lesson.id} className="lesson-card card">
+                            <img src={lesson.img} alt={`Lesson ${index + 1}`} />
+                            <h1>{lesson.title}</h1>
+                            <div className="review">
+                                <img src={lesson.reviewImg} alt={lesson.reviewer} />
+                                <h4>{lesson.reviewer}</h4>
+                            </div>
+                            <div className="progress-container">
+                                <div className="progress-bar" style={{ width: lesson.progress }}></div>
+                            </div>
+                            <p>{lesson.lessonInfo}</p>
+                        </div>
+                    ))}
                 </div>
             </div>
-            <div className="slider-btn">
-                {/* <i className="fa-solid fa-chevron-left pp1"></i> <i className="fa-solid fa-chevron-right nn1"></i> */}
-              </div>
+            <div className="pagination">
+                <button onClick={prevSlide} className="prev pp2">&#10094;</button>
+                <button onClick={nextSlide} className="next nn2">&#10095;</button>
+            </div>
         </section>
 
         <section className="favourite-courses">
@@ -101,56 +71,56 @@ const Courses = () => {
             <div className="category-section">
                 <div className="category-card">
                     <div className="icon icon1">
-                        {/* <i className="fa-solid fa-paintbrush"></i> */}
+                    <FontAwesomeIcon icon={faPaintbrush} className='text-teal-500 h-7' />
                         </div>
                     <h3>Design</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
                 </div>
                 <div className="category-card">
                     <div className="icon icon2">
-                        {/* <i className="fa-solid fa-display"></i> */}
+                    <FontAwesomeIcon icon={faDisplay} className='text-indigo-500 h-7' />
                         </div>
                     <h3>Development</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
                 </div>
                 <div className="category-card">
                     <div className="icon icon3">
-                        {/* <i className="fa-solid fa-database"></i> */}
+                    <FontAwesomeIcon icon={faDatabase} className='text-blue-300 h-7' />
                         </div>
                     <h3>Development</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
                 </div>
                 <div className="category-card">
                     <div className="icon icon4">
-                        {/* <i className="fa-solid fa-briefcase"></i> */}
+                    <FontAwesomeIcon icon={faBriefcase} className='text-teal-500 h-7' />
                         </div>
                     <h3>Business</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
                 </div>
                 <div className="category-card">
                     <div className="icon icon5">
-                        {/* <i className="fa-solid fa-bullhorn"></i> */}
+                    <FontAwesomeIcon icon={faBullhorn} className='text-orange-400 h-7' />
                         </div>
                     <h3>Marketing</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
                 </div>
                 <div className="category-card">
                     <div className="icon icon6">
-                        {/* <i className="fa-solid fa-book"></i> */}
+                    <FontAwesomeIcon icon={faBook} className='text-red-400 h-7' />
                         </div>
                     <h3>Photography</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
                 </div>
                 <div className="category-card">
                     <div className="icon icon7">
-                        {/* <i className="fa-solid fa-masks-theater"></i> */}
+                    <FontAwesomeIcon icon={faMasksTheater} className='text-gray-800 h-7' />
                         </div>
                     <h3>Acting</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
                 </div>
                 <div className="category-card">
                     <div className="icon icon8">
-                        {/* <i className="fa-solid fa-briefcase"></i> */}
+                    <FontAwesomeIcon icon={faBriefcase} className='text-teal-500 h-7' />
                         </div>
                     <h3>Business</h3>
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmodadipiscing elit, sed do eiusmod</p>
@@ -168,10 +138,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -191,10 +161,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -214,10 +184,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -237,10 +207,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -260,10 +230,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -283,10 +253,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -306,10 +276,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -329,10 +299,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -349,9 +319,10 @@ const Courses = () => {
                         </div>
                     </div>
                 </div>
-                <div className="slider-btn">
-                    {/* <i className="fa-solid fa-chevron-left pp2"></i> <i className="fa-solid fa-chevron-right nn2"></i> */}
-                  </div>
+                <div className="pagination">
+                <button className="prev pp2">&#10094;</button>
+                <button className="next nn2">&#10095;</button>
+            </div>
         </section>
 
         <section className="choice choice1">
@@ -364,10 +335,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -387,10 +358,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -410,10 +381,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -433,10 +404,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -471,10 +442,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -494,10 +465,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -517,10 +488,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -540,10 +511,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -572,10 +543,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -595,10 +566,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -618,10 +589,10 @@ const Courses = () => {
                         <img src={courseimg01} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
@@ -641,10 +612,10 @@ const Courses = () => {
                         <img src={courseimg02} alt="Lesson 1" />
                         <div className="design-time">
                             <div className="design">
-                                {/* <i className="fa-solid fa-border-all"></i> */}
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                                 Desgin</div>
                             <div className="time">
-                                {/* <i className="fa-regular fa-clock"></i> */}
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                                 3 Month</div>
                         </div>
                         <h1>AWS Certified Solutions Architect</h1>
