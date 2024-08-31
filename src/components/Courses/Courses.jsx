@@ -34,6 +34,70 @@ const Courses = () => {
             prevIndex === 0 ? lessons.length - 1 : prevIndex - 1
         );
     };
+
+    const [currIndex, setCurrIndex] = useState(0);
+
+    const previousSlide = () => {
+        const lastIndex = cards.length - 1;
+        const shouldResetIndex = currIndex === 0;
+        const index = shouldResetIndex ? lastIndex - 3 : currIndex - 4;
+        setCurrIndex(index);
+    };
+
+    const nextCardSlide = () => {
+        const lastIndex = cards.length - 4;
+        const shouldResetIndex = currIndex === lastIndex;
+        const index = shouldResetIndex ? 0 : currIndex + 4;
+        setCurrIndex(index);
+    };
+
+    const cards = [
+        {
+            imgSrc: courseimg01,
+            design: "Design",
+            time: "3 Month",
+            title: "AWS Certified Solutions Architect",
+            description: "Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor",
+            reviewerImg: personImg01,
+            reviewerName: "Lina",
+            oldPrice: "$100",
+            newPrice: "$80"
+        },
+        {
+            imgSrc: courseimg02,
+            design: "Design",
+            time: "3 Month",
+            title: "AWS Certified Solutions Architect",
+            description: "Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor",
+            reviewerImg: personImg01,
+            reviewerName: "Lina",
+            oldPrice: "$100",
+            newPrice: "$80"
+        },
+        {
+            imgSrc: courseimg01,
+            design: "Design",
+            time: "3 Month",
+            title: "AWS Certified Solutions Architect",
+            description: "Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor",
+            reviewerImg: personImg01,
+            reviewerName: "Lina",
+            oldPrice: "$100",
+            newPrice: "$80"
+        },
+        {
+            imgSrc: courseimg01,
+            design: "Design",
+            time: "3 Month",
+            title: "AWS Certified Solutions Architect",
+            description: "Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor",
+            reviewerImg: personImg01,
+            reviewerName: "Lina",
+            oldPrice: "$100",
+            newPrice: "$80"
+        },
+    ];
+
   return (
     <div>
         <Navbar />
@@ -128,198 +192,45 @@ const Courses = () => {
             </div>
         </section>
 
-        <section className="recommended">
+<section className="recommended">
             <div className="recommended-top">
                 <h2>Recommended for you</h2>
                 <h6>See all</h6>
             </div>
-            <div className="recommended slider-2 container">
-                    <div className="recommended-card card">
-                        <img src={courseimg01} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
+            <div className="relative flex items-center justify-center">
+                <div className="overflow-hidden w-full">
+                    <div className="flex transition-transform ease-in-out duration-500" style={{ transform: `translateX(-${currIndex * (100 / 4)}%)` }}>
+                        {cards.map((card, index) => (
+                            <div className="recommended-card card flex-shrink-0 w-1/4 p-4" key={index}>
+                                <img src={card.imgSrc} alt="Lesson" />
+                                <div className="design-time">
+                                    <div className="design">
+                                        <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
+                                        {card.design}
+                                    </div>
+                                    <div className="time">
+                                        <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
+                                        {card.time}
+                                    </div>
+                                </div>
+                                <h1>{card.title}</h1>
+                                <p>{card.description}</p>
+                                <div className="review">
+                                    <div className="person-review">
+                                        <img src={card.reviewerImg} alt="" />
+                                        <h4>{card.reviewerName}</h4>
+                                    </div>
+                                    <div className="course-price">
+                                        <p>{card.oldPrice}</p>
+                                        <p>{card.newPrice}</p>
+                                    </div>
+                                </div>
                             </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommended-card card">
-                        <img src={courseimg02} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
-                            </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommended-card card">
-                        <img src={courseimg01} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
-                            </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommended-card card">
-                        <img src={courseimg02} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
-                            </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommended-card card">
-                        <img src={courseimg01} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
-                            </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommended-card card">
-                        <img src={courseimg02} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
-                            </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommended-card card">
-                        <img src={courseimg01} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
-                            </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="recommended-card card">
-                        <img src={courseimg02} alt="Lesson 1" />
-                        <div className="design-time">
-                            <div className="design">
-                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                Desgin</div>
-                            <div className="time">
-                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                3 Month</div>
-                        </div>
-                        <h1>AWS Certified Solutions Architect</h1>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipising elit, sed do eiusmod tempor</p>
-                        <div className="review">
-                            <div className="person-review">
-                                <img src={personImg01} alt="" />
-                                <h4>Lina</h4>
-                            </div>
-                            <div className="course-price">
-                                <p>$100</p>
-                                <p>$80</p>
-                            </div>
-                        </div>
+                        ))}
                     </div>
                 </div>
-                <div className="pagination">
+            </div>
+            <div className="pagination">
                 <button className="prev pp2">&#10094;</button>
                 <button className="next nn2">&#10095;</button>
             </div>

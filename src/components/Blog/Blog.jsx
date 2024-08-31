@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import "./Blog.css";
 import Group40 from "../assest/media/Group 40.png";
 import Rectangle34 from "../assest/media/Rectangle 34.png";
@@ -12,9 +12,45 @@ import blog02 from "../assest/media/blog-02.png";
 import blog03 from "../assest/media/blog-03.png";
 import blog04 from "../assest/media/blog-04.png";
 import Navbar from '../MainNav/Navbar';
+import eye from "../assest/media/eye.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBorderAll, faClock } from '@fortawesome/free-solid-svg-icons';
 
 
 const Blog = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+
+  const cards = [
+    {
+      imgSrc: Rectangle23,
+      title: 'ClassName adds $30 million to its balance sheet for a Zoom-friendly edtech solution',
+      authorImg: image12,
+      authorName: 'Lina',
+      views: '251,232',
+    },
+    {
+      imgSrc: Rectangle23,
+      title: 'ClassName adds $30 million to its balance sheet for a Zoom-friendly edtech solution',
+      authorImg: image12,
+      authorName: 'Lina',
+      views: '251,232',
+    },
+    {
+      imgSrc: Rectangle23,
+      title: 'ClassName adds $30 million to its balance sheet for a Zoom-friendly edtech solution',
+      authorImg: image12,
+      authorName: 'Lina',
+      views: '251,232',
+    },
+  ];
+
+  const handlePrev = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? cards.length - 1 : prevIndex - 1));
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === cards.length - 1 ? 0 : prevIndex + 1));
+  };
   return (
     <div>
         <Navbar />
@@ -53,128 +89,63 @@ const Blog = () => {
         </div>
     </div>
 
-    <div className="main-container">
-        <div className="container">
-            <div className="header">
-                <div>
-                    <h3>Related Blog</h3>
-                </div>
-                <div>
-                    <a href="#" className="see-all">See all</a>
-                </div>
+    <div className="main-container p-4">
+      <div className="container mx-auto">
+        <div className="header flex justify-between items-center mb-4">
+          <h3 className="text-3xl text-gray-600">Related Blog</h3>
+          <a href="#" className="see-all text-teal-500">See all</a>
+        </div>
+        <div className="cards slider flex space-x-4 overflow-hidden">
+          <div className="card w-1/2">
+            <div className="image-container">
+              <img src={cards[currentIndex].imgSrc} alt="Card Image" className="img-fluid rounded-lg" />
             </div>
-            <div className="cards slider">
-                <div className="card">
-                    <div className="image-container">
-                        <img src={Rectangle23} alt="Card Image" className="img-fluid" />
-                    </div>
-                    <div className="content">
-                        <h3>className adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h3>
-                        <div className="author-info">
-                            <img src={image12} alt="Author" />
-                            <span>Lina</span>
-                        </div>
-                        <p>className, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
-                        <div className="card-view">
-                           <div>
-                            <a href="#" >Read More</a>
-                           </div>
-                           <div>
-                            <div className="views">
-                                {/* <i className="material-icons">visibility</i> */}
-                                <span>251,232</span>
-                            </div>
-                           </div>
-                        </div>
-                    </div>
+            <div className="content mt-4">
+              <h3 className="font-semibold text-lg">{cards[currentIndex].title}</h3>
+              <div className="author-info flex items-center mt-2">
+                <img src={cards[currentIndex].authorImg} alt="Author" className="w-8 h-8 rounded-full mr-2" />
+                <span>{cards[currentIndex].authorName}</span>
+              </div>
+              <p className="mt-2 text-gray-600">
+                ClassName, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
+              </p>
+              <div className="card-view flex justify-between items-center mt-4">
+                <a href="#" className="text-teal-500">Read More</a>
+                <div className="views flex items-center">
+                <img src={eye} alt="" className='w-4' />
+                  <span className="ml-2">{cards[currentIndex].views}</span>
                 </div>
-                <div className="card">
-                    <div className="image-container">
-                        <img src={Rectangle23} alt="Card Image" className="img-fluid" />
-                    </div>
-                    <div className="content">
-                        <h3>className adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h3>
-                        <div className="author-info">
-                            <img src={image12} alt="Author" />
-                            <span>Lina</span>
-                        </div>
-                        <p>className, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
-                        <div className="card-view">
-                            <a href="#">Read More</a>
-                            <div className="views">
-                                {/* <i className="material-icons">visibility</i> */}
-                                <span>251,232</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-container">
-                        <img src={Rectangle23} alt="Card Image" />
-                    </div>
-                    <div className="content">
-                        <h3>className adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h3>
-                        <div className="author-info">
-                            <img src={image12} alt="Author" />
-                            <span>Lina</span>
-                        </div>
-                        <p>className, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
-                        <div className="card-view">
-                            <a href="#">Read More</a>
-                            <div className="views">
-                                {/* <i className="material-icons">visibility</i> */}
-                                <span>251,232</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-container">
-                        <img src={Rectangle23} alt="Card Image" />
-                    </div>
-                    <div className="content">
-                        <h3>className adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h3>
-                        <div className="author-info">
-                            <img src={image12} alt="Author" />
-                            <span>Lina</span>
-                        </div>
-                        <p>className, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
-                        <div className="card-view">
-                            <a href="#">Read More</a>
-                            <div className="views">
-                                {/* <i className="material-icons">visibility</i> */}
-                                <span>251,232</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div className="card">
-                    <div className="image-container">
-                        <img src={Rectangle23} alt="Card Image" />
-                    </div>
-                    <div className="content">
-                        <h3>className adds $30 million to its balance sheet for a Zoom-friendly edtech solution</h3>
-                        <div className="author-info">
-                            <img src={image12} alt="Author" />
-                            <span>Lina</span>
-                        </div>
-                        <p>className, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...</p>
-                        <div className="card-view">
-                            <a href="#">Read More</a>
-                            <div className="views">
-                                {/* <i className="material-icons">visibility</i> */}
-                                <span>251,232</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+              </div>
             </div>
-            <div className="pagination">
+          </div>
+          <div className="card w-1/2">
+            <div className="image-container">
+              <img src={cards[(currentIndex + 1) % cards.length].imgSrc} alt="Card Image" className="img-fluid rounded-lg" />
+            </div>
+            <div className="content mt-4">
+              <h3 className="font-semibold text-lg">{cards[(currentIndex + 1) % cards.length].title}</h3>
+              <div className="author-info flex items-center mt-2">
+                <img src={cards[(currentIndex + 1) % cards.length].authorImg} alt="Author" className="w-8 h-8 rounded-full mr-2" />
+                <span>{cards[(currentIndex + 1) % cards.length].authorName}</span>
+              </div>
+              <p className="mt-2 text-gray-600">
+                ClassName, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
+              </p>
+              <div className="card-view flex justify-between items-center mt-4">
+                <a href="#" className="text-teal-500">Read More</a>
+                <div className="views flex items-center">
+                <img src={eye} alt="" className='w-4' />
+                  <span className="ml-2">{cards[(currentIndex + 1) % cards.length].views}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="pagination">
                 <button className="prev pp2">&#10094;</button>
                 <button className="next nn2">&#10095;</button>
             </div>
-        </div>
-
+      </div>
     </div>
 
     <section className="choice choice2">
@@ -187,10 +158,10 @@ const Blog = () => {
                     <img src={blog01} alt="Lesson 1" />
                     <div className="design-time">
                         <div className="design">
-                            {/* <i className="fa-solid fa-border-all"></i> */}
+                            <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                             Desgin</div>
                         <div className="time">
-                            {/* <i className="fa-regular fa-clock"></i> */}
+                            <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                         3 Month</div>
                     </div>
                     <h1>AWS Certified Solutions Architect</h1>
@@ -210,10 +181,10 @@ const Blog = () => {
                     <img src={blog02} alt="Lesson 1" />
                     <div className="design-time">
                         <div className="design">
-                            {/* <i className="fa-solid fa-border-all"></i> */}
+                            <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                             Desgin</div>
                         <div className="time">
-                            {/* <i className="fa-regular fa-clock"></i> */}
+                            <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                         3 Month</div>
                     </div>
                     <h1>AWS Certified Solutions Architect</h1>
@@ -233,10 +204,10 @@ const Blog = () => {
                     <img src={blog03} alt="Lesson 1" />
                     <div className="design-time">
                         <div className="design">
-                            {/* <i className="fa-solid fa-border-all"></i> */}
+                            <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                             Desgin</div>
                         <div className="time">
-                            {/* <i className="fa-regular fa-clock"></i> */}
+                            <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                             3 Month</div>
                     </div>
                     <h1>AWS Certified Solutions Architect</h1>
@@ -256,10 +227,10 @@ const Blog = () => {
                     <img src={blog04} alt="Lesson 1" />
                     <div className="design-time">
                         <div className="design">
-                            {/* <i className="fa-solid fa-border-all"></i> */}
+                            <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
                             Desgin</div>
                         <div className="time">
-                            {/* <i className="fa-regular fa-clock"></i> */}
+                            <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
                             3 Month</div>
                     </div>
                     <h1>AWS Certified Solutions Architect</h1>

@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
-import "./Navbar.css";
+import "./LitNav.css";
 import { Link } from 'react-router-dom';
 import image12 from "../assest/media/image 12.png";
 
-function Navbar() {
+function LitNav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleDropdown = () => {
@@ -35,66 +35,6 @@ function Navbar() {
             </li>
             <li>
                 <Link to="/literature">Literature</Link>
-            </li>
-            <li>
-            <div className="relative inline-block text-left">
-      <button
-        className="btn dropdown-toggle bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none"
-        onClick={toggleDropdown}
-      >
-        Others
-      </button>
-
-      {isOpen && (
-        <ul className="dropdown-menu absolute right-0 mt-2 top-14 w-48 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/search">
-              Search
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/meeting">
-              Meeting
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-detail">
-              Course Details
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/blog-details">
-              Blog Details
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/checkoutpage">
-              Checkout
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-cal-create-01">
-              Calendar 01
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/Course-Calendar-Create2">
-              Calendar 02
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-calendar">
-              Course Calendar
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/Course-Full-View">
-              Full View Calendar
-            </Link>
-          </li>
-        </ul>
-      )}
-    </div>
             </li>
             <li>
               <div className="header-user">
@@ -141,4 +81,4 @@ function Navbar() {
   );
 }
 
-export default Navbar;
+export default LitNav;
