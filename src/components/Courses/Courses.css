@@ -8,40 +8,42 @@
 body {
     font-family: "Poppins", sans-serif !important;
 }
-a {
-    text-decoration: none !important;
-}
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-}
 
-header .logo {
-    font-size: 24px;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-}
-
-header nav ul li {
-    margin-left: 20px;
-}
-
-header nav ul li a {
-    text-decoration: none;
-}
-
-/* Welcome */
 section {
     position: relative;
     padding: 20px 20px 50px;
 }
+
+.welcome {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    margin: 0 auto;
+}
+
+.lessons.slider {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100%;
+}
+
+.lesson-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.lesson-card {
+    min-width: 33.74%; 
+    box-sizing: border-box;
+    padding: 10px;
+}
+
+.lesson-card .card{
+    left: 10px;
+}
+
 
 section.welcome,
 section.recommended {
