@@ -57,15 +57,15 @@ const Home = () => {
                                 </button>
                                 {showDropdown && (
                                     <ul className="dropdown-menu w-[10rem] absolute left-0 mt-5 bg-white text-[#49BBBD] py-5 rounded-lg shadow-lg">
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Search</a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Meeting</a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Course Details</a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Blog Details</a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Checkout</a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Calendar 01 </a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Calendar 02 </a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Course Calendar </a></li>
-                                        <li><a className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Full View Calendar   </a></li>
+                                        <Link to='/search' className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Search</Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Meeting</Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Course Details</Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Blog Details</Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Checkout</Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Calendar 01 </Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Calendar 02 </Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Course Calendar </Link>
+                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Full View Calendar   </Link>
                                     </ul>
                                 )}
                             </li>
