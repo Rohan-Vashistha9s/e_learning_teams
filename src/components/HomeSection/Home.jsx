@@ -28,7 +28,11 @@ import { Link } from 'react-router-dom';
 
 
 const Home = () => {
-    const [showDropdown, setShowDropdown] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDropdown = () => {
+    setIsOpen(!isOpen);
+  };
 
     return (
         <div className="font-poppins">
@@ -47,28 +51,66 @@ const Home = () => {
                             <Link to="/members" >Membership</Link>
                             <Link to="/blog">Blog</Link>
                             <Link to="/literature">Literature</Link>
-                            <li className="relative">
-                                <button
-                                    className="btn bg-transparent text-white border-none text-[14px] flex items-center"
-                                    onClick={() => setShowDropdown(!showDropdown)}
-                                >
-                                    Others
-                                    <FontAwesomeIcon icon={faChevronDown} className="ml-2 text-white" />
-                                </button>
-                                {showDropdown && (
-                                    <ul className="dropdown-menu w-[10rem] absolute left-0 mt-5 bg-white text-[#49BBBD] py-5 rounded-lg shadow-lg">
-                                        <Link to='/search' className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Search</Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Meeting</Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Course Details</Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Blog Details</Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Checkout</Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Calendar 01 </Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Calendar 02 </Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Course Calendar </Link>
-                                        <Link className="dropdown-item text-[14px] my-1 py-1 block px-4 hover:bg-gray-200">Full View Calendar   </Link>
-                                    </ul>
-                                )}
-                            </li>
+                            <li>
+            <div className="relative inline-block text-left">
+      <button
+        className="btn dropdown-toggle bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none"
+        onClick={toggleDropdown}
+      >
+        Others
+      </button>
+
+      {isOpen && (
+        <ul className="dropdown-menu absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-10">
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/search">
+              Search
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/meeting">
+              Meeting
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-detail">
+              Course Details
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/blog-details">
+              Blog Details
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/checkoutpage">
+              Checkout
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-cal-create-01">
+              Calendar 01
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/Course-Calendar-Create2">
+              Calendar 02
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-calendar">
+              Course Calendar
+            </Link>
+          </li>
+          <li>
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/Course-Full-View">
+              Full View Calendar
+            </Link>
+          </li>
+        </ul>
+      )}
+    </div>
+            </li>
                             <Link to='/login' className="btn-head-l mx-[5px] bg-white py-1.5 px-6 text-black rounded-full shadow-[0px_20px_24px_0px_rgba(0,0,0,0.08)]">Login</Link>
                             <Link to='/login' className="btn-head-s mx-[5px] bg-white/30 py-1.5 px-6 text-white rounded-full shadow-[0px_20px_24px_0px_rgba(0,0,0,0.08)]">Sign Up</Link>
                         </ul>
