@@ -12,9 +12,9 @@ const BlogDetails = () => {
   return (
     <>
     <Navbar />
-      <main className="container-fluid p-0">
-        <div className="row m-0">
-          <div className="col-12 p-0">
+      <main className="container-fluid">
+        <div className="row">
+          <div className="col-12">
             <img src={main} className="img-fluid w-100" alt="Main Image" />
           </div>
         </div>

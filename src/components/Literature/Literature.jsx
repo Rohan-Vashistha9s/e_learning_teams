@@ -24,7 +24,6 @@ import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
 const Literature = () => {
     const [selectedTab, setSelectedTab] = useState('Book');
   
-  // Images for each tab
   const tabImages = {
     About: rect196,
     Course: rect32,
@@ -66,7 +65,7 @@ const Literature = () => {
             </div>
           </div>
 
-      <div className="bg-white shadow-lg rounded-[20px] overflow-hidden absolute top-10 left-[700px] transform -translate-x-2/4 w-[70.5%]">
+      <div className="bg-white/80 shadow-lg rounded-[20px] overflow-hidden absolute top-10 left-[700px] transform -translate-x-2/4 w-[70.5%]">
         <div className="relative p-6">
           <button className="absolute top-6 right-6 bg-teal-500 text-white px-4 py-2 rounded-lg">
             Enroll Now
