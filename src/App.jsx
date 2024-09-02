@@ -5,6 +5,7 @@ import Courses from './components/Courses/Courses';
 import Footer from './components/Footer/Footer';
 import Home from './components/HomeSection/Home';
 import Literature from './components/Literature/Literature';
+import Calendar02 from './components/MainNav/Other/Calendar02';
 import Calender01 from './components/MainNav/Other/Calender01';
 import Search from './components/MainNav/Other/Search';
 import Membership from './components/Membership/Membership';
@@ -25,6 +26,7 @@ function App() {
           <Route exact path='/literature' element={<Literature />} />
           <Route exact path='/search' element={<Search />} />
           <Route exact path='/course-cal-create-01' element={<Calender01 />} />
+          <Route exact path='/Course-Calendar-Create2' element={<Calendar02 />} />
         </Routes>
         <Footer />
       </Router>
