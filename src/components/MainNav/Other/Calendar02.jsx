@@ -129,8 +129,6 @@ const Calendar02 = () => {
            </div>
          </div>
 
-         {/* Repeat these blocks if needed */}
-
        </div>
      </div>
     </div>
