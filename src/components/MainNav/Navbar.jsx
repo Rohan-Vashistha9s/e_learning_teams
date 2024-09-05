@@ -58,7 +58,7 @@ function Navbar() {
             </Link>
           </li>
           <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-detail">
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/courseDe">
               Course Details
             </Link>
           </li>
@@ -125,7 +125,7 @@ function Navbar() {
             <li><Link to="/literature">Literature</Link></li>
             <li><Link to="/search">Search</Link></li>
             <li><Link to="/meeting">Meeting</Link></li>
-            <li><Link to="/course-detail">Course Details</Link></li>
+            <li><Link to="/courseDe">Course Details</Link></li>
             <li><Link to="/blog-details">Blog Details</Link></li>
             <li><Link to="/checkoutpage">Checkout</Link></li>
             <li><Link to="/course-cal-create-01">Calendar 01</Link></li>

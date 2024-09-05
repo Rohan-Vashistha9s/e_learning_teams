@@ -73,7 +73,7 @@ const Home = () => {
             </Link>
           </li>
           <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-detail">
+            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/courseDe">
               Course Details
             </Link>
           </li>
