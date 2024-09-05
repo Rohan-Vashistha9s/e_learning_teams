@@ -16,9 +16,11 @@ import Checkout from './components/MainNav/Other/Checkout';
 import CourseCalender from './components/MainNav/Other/CourseCalender';
 import FullViewCalendar from './components/MainNav/Other/FullViewCalendar';
 import Search from './components/MainNav/Other/Search';
-import Membership from './components/Membership/Membership';
+import Membership from './components/MainNav/Other/Meeting.jsx';
 import './index.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Meeting from './components/MainNav/Other/Meeting';
+import CourseDetails from './components/MainNav/Other/CourseDetails.jsx';
 
 function App() {
   return (
@@ -32,6 +34,8 @@ function App() {
           <Route exact path='/blog' element={<Blog />} />
           <Route exact path='/literature' element={<Literature />} />
           <Route exact path='/search' element={<Search />} />
+          <Route exact path='/meeting' element={<Meeting />} />
+          <Route exact path='/courseDe' element={<CourseDetails />} />
           <Route exact path='/course-cal-create-01' element={<Calender01 />} />
 
           <Route exact path='/checkoutpage' element={<Checkout/>}></Route>
