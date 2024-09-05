@@ -1,3 +1,5 @@
+
+
 import React, { useState } from "react";
 import "./Home.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -213,132 +215,6 @@ const Home = () => {
                       <h4 className="text-[1.2rem] font-semibold">250k</h4>
                       <p className="text-[#252641] text-sm">Assisted Student</p>
                     </div>
-
-                    <nav className="space-x-4">
-                        <ul className="flex space-x-12 text-white cursor-pointer">
-                            <Link to="/">Home</Link>
-                            <Link to="/courses">Courses</Link>
-                            <Link to="/members" >Membership</Link>
-                            <Link to="/blog">Blog</Link>
-                            <Link to="/literature">Literature</Link>
-                            <li>
-            <div className="relative inline-block text-left">
-      <button
-        className="btn dropdown-toggle bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none"
-        onClick={toggleDropdown}
-      >
-        Others
-      </button>
-
-      {isOpen && (
-        <ul className="dropdown-menu absolute right-0 mt-2 w-56 bg-white border border-gray-200 rounded-md shadow-lg z-10">
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/search">
-              Search
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/meeting">
-              Meeting
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/courseDe">
-              Course Details
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/blog-details">
-              Blog Details
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/checkoutpage">
-              Checkout
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-cal-create-01">
-              Calendar 01
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/Course-Calendar-Create2">
-              Calendar 02
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/course-calendar">
-              Course Calendar
-            </Link>
-          </li>
-          <li>
-            <Link className="dropdown-item block px-4 py-2 text-gray-800 hover:bg-gray-100" to="/Course-Full-View">
-              Full View Calendar
-            </Link>
-          </li>
-        </ul>
-      )}
-    </div>
-            </li>
-                            <Link to='/login' className="btn-head-l mx-[5px] bg-white py-1.5 px-6 text-black rounded-full shadow-[0px_20px_24px_0px_rgba(0,0,0,0.08)]">Login</Link>
-                            <Link to='/login' className="btn-head-s mx-[5px] bg-white/30 py-1.5 px-6 text-white rounded-full shadow-[0px_20px_24px_0px_rgba(0,0,0,0.08)]">Sign Up</Link>
-                        </ul>
-                    </nav>
-                    <i className="fa-regular fa-bars-staggered text-white lg:hidden" id="menu-btn"></i>
-                </header>
-
-                <div className="py-16">
-                    <div className="mx-auto flex flex-col lg:flex-row items-center">
-                        <div className="w-[50rem] left-[9rem] text-white relative">
-                            <h1 className="text-[3rem] my-6 leading-[4rem] font-bold">
-                                <span className="text-yellow-300">Studying</span> Online is now <br /> much easier
-                            </h1>
-                            <p className="leading-10 font-semibold my-6">
-                                <span>TOTC is an interesting platform that will teach you <br /> in more an interactive way</span>
-                            </p>
-                            <div className="flex space-x-4">
-                                <button className="bg-[#91d5d6] hover:bg-[#3b8384] text-white py-2 px-4 rounded-3xl h-[3rem] w-[9.5rem]">Join for free</button>
-                                <p className="flex items-center">
-                                    <FontAwesomeIcon icon={faCirclePlay} className='w-[3rem] relative bottom-2 h-[4rem]' /> <span className='mx-6 bottom-2 relative text-black'> Watch how it works</span>
-                                </p>
-                            </div>
-                        </div>
-                        <div className="">
-                            <img
-                                src={hero}
-                                alt="hero-img"
-                                className="w-[32rem] h-[40rem]"
-                            />
-
-                            <div>
-                                {/* information */}
-                                <div className="hero-inner relative bottom-[37rem] right-[4rem]">
-                                    <div className="absolute w-[15rem] top-10 left-0 bg-white/70 p-4 flex items-center text-black space-x-4 rounded-lg">
-                                        <FontAwesomeIcon icon={faCalendarDays} className="text-[24px]" />
-                                        <div>
-                                            <h4 className="text-[1.2rem] font-semibold">250k</h4>
-                                            <p className="text-[#252641] text-sm">Assisted Student</p>
-                                        </div>
-                                    </div>
-                                    <div className="absolute top-[380px] w-[20rem] left-0 bg-white/70 p-4 flex h-[10rem] text-black space-x-4 rounded-lg">
-                                        <img src={userHero} alt="hero user" className="w-10 h-10 rounded-full" />
-                                        <div>
-                                            <h4 className="text-[1.2rem] font-semibold">User Experience Class</h4>
-                                            <p className="text-[#252641] text-sm">Today at 12.00 PM</p>
-                                        </div>
-                                    </div>
-                                    <button className="bg-[#D8587E] relative top-[30rem] font-semibold items-center py-2 px-4 w-[8rem] rounded-2xl left-[5rem] text-white">Join Now</button>
-                                    <div className="absolute top-[250px] -right-[9rem] w-[18rem] bg-white/70 p-4 flex items-center text-black space-x-4 rounded-lg">
-                                        <FontAwesomeIcon icon={faEnvelope} className="text-[24px]" />
-                                        <div>
-                                            <h4 className="text-[1.2rem] font-semibold">Congratulations</h4>
-                                            <p className="text-[#252641] text-sm">Your admission completed</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                   </div>
                   <div className="absolute top-[380px] w-[20rem] left-0 bg-white/70 p-4 flex h-[10rem] text-black space-x-4 rounded-lg">
                     <img
@@ -370,7 +246,6 @@ const Home = () => {
                       <p className="text-[#252641] text-sm">
                         Your admission completed
                       </p>
-
                     </div>
                   </div>
                 </div>
@@ -738,7 +613,7 @@ const Home = () => {
           <div className="md:w-5/12">
             <div
               className="relative p-8 bg-no-repeat bg-center bg-contain"
-              style={{ backgroundImage: `url(${dots})` }}
+              style={{ backgroundImage: `url(${dots})`}}
             >
               <div className="absolute top-28 left-4 bg-white p-2 shadow-lg rounded-md">
                 <i className="fa-solid fa-window-restore text-indigo-500 text-2xl bg-white shadow-md p-2 rounded-full"></i>
@@ -990,24 +865,24 @@ const Home = () => {
       </div>
 
       <section id="explore-course-section" className="bg-[#e9f2ff] w-auto ">
-        <div className="bg-white  w-[20rem] h-[111rem] absolute left-[74rem] -z-10"></div>
-        <div id="ex-course">
-          <div id="ex-in">
-            <h1>Explore Course</h1>
-            <p>Ut sed eros finibus, placerat orci id, dapibus.</p>
+         <div className="bg-white  w-[20rem] h-[111rem] absolute left-[74rem] -z-10"></div>
+         <div id="ex-course">
+           <div id="ex-in">
+             <h1>Explore Course</h1>
+             <p>Ut sed eros finibus, placerat orci id, dapibus.</p>
 
-            <div className="ex-c-list">
-              <div className="ex-title">
-                <div>
-                  <h4>Lorem Ipsum</h4>
-                </div>
-                <div>
-                  <p>See all</p>
-                </div>
-              </div>
+             <div className="ex-c-list">
+               <div className="ex-title">
+                 <div>
+                   <h4>Lorem Ipsum</h4>
+                 </div>
+                 <div>
+                   <p>See all</p>
+                 </div>
+               </div>
 
-              <div className="ex-list-data">
-                {[
+               <div className="ex-list-data">
+             {[
                   "Ut Sed Eros",
                   "Curabitur Egestas",
                   "Quisque Conseq…",
@@ -1129,6 +1004,7 @@ const Home = () => {
           </div>
         </div>
       </section>
+ 
 
       <div className="max-w-screen-xl mx-auto my-12 p-5">
         <div className="flex flex-wrap">
