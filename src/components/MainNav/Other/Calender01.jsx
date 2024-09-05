@@ -1,5 +1,9 @@
 import React from 'react';
 import './Calender01.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faArrowLeft, faBookOpen, faClock as faSolidClock } from '@fortawesome/free-solid-svg-icons';
+import { Link } from 'react-router-dom';
+
 
 const Calender01 = () => {
   return (
@@ -9,16 +13,18 @@ const Calender01 = () => {
     <div className="row">
       <div className="col-md-3">
         <div className="course-cal-inner">
+        <Link to='/'>
           <button>
-            {/* <a href="index.html"><i className="fa-regular fa-arrow-left" style={{ color: '#ffffff' }}></i></a> */}
+            <FontAwesomeIcon icon={faArrowLeft} />
           </button>
+          </Link>
 
           <h4>Change Simplification</h4>
 
           <div className="cal-list">
             <div className="cal-btn cal-btn-01">
               <div>
-                {/* <i className="fa-solid fa-book-open" style={{ color: '#ffffff' }}></i> */}
+              <FontAwesomeIcon icon={faBookOpen} style={{ color: '#ffffff' }} />
               </div>
               <div>
                 <p className="lesson">Lesson 01 : Introduction about XD</p>
@@ -30,8 +36,7 @@ const Calender01 = () => {
 
             <div className="cal-btn c-01">
               <div>
-                {/* Uncomment and replace with icon component if needed */}
-                {/* <i className="fa-solid fa-book-open"></i> */}
+              <FontAwesomeIcon icon={faBookOpen} />
               </div>
               <div>
                 <p className="lesson">Lesson 02 : Advanced XD Techniques</p>
@@ -43,8 +48,7 @@ const Calender01 = () => {
 
             <div className="cal-btn c-02">
               <div>
-                {/* Uncomment and replace with icon component if needed */}
-                {/* <i className="fa-solid fa-book-open"></i> */}
+              <FontAwesomeIcon icon={faBookOpen} />
               </div>
               <div>
                 <p className="lesson">Lesson 03 : XD in Practice</p>
@@ -56,8 +60,7 @@ const Calender01 = () => {
 
             <div className="cal-btn c-03">
               <div>
-                {/* Uncomment and replace with icon component if needed */}
-                {/* <i className="fa-solid fa-book-open"></i> */}
+              <FontAwesomeIcon icon={faBookOpen} />
               </div>
               <div>
                 <p className="lesson">Lesson 04 : Final Project</p>
@@ -79,7 +82,7 @@ const Calender01 = () => {
        <div className="cal-list">
          <div className="cal-btn c-02">
            <div>
-             <i className="fa-solid fa-book-open"></i>
+             <FontAwesomeIcon icon={faBookOpen} />
            </div>
            <div>
              <p className="lesson">Lesson 01 : Introduction about XD</p>
@@ -91,7 +94,7 @@ const Calender01 = () => {
 
          <div className="cal-btn c-01">
            <div>
-             <i className="fa-solid fa-book-open"></i>
+             <FontAwesomeIcon icon={faBookOpen} />
            </div>
            <div>
              <p className="lesson">Lesson 02 : Advanced XD Techniques</p>
@@ -103,7 +106,7 @@ const Calender01 = () => {
 
          <div className="cal-btn c-02">
            <div>
-             <i className="fa-solid fa-book-open"></i>
+             <FontAwesomeIcon icon={faBookOpen} />
            </div>
            <div>
              <p className="lesson">Lesson 03 : XD in Practice</p>
@@ -115,7 +118,7 @@ const Calender01 = () => {
 
          <div className="cal-btn c-03">
            <div>
-             <i className="fa-solid fa-book-open"></i>
+             <FontAwesomeIcon icon={faBookOpen} />
            </div>
            <div>
              <p className="lesson">Lesson 04 : Final Project</p>
@@ -143,7 +146,7 @@ const Calender01 = () => {
              <div>
                <p>
                  <span>
-                   <i className="fa-light fa-clock" style={{ color: '#ffffff' }}></i>
+                 <FontAwesomeIcon icon={faSolidClock} style={{ color: '#ffffff' }} />
                  </span> 
                  1 hour
                </p>
