@@ -1,0 +1,43 @@
+/* Course Calender */
+.line{
+    border-bottom: 1.5px solid gray;
+}
+
+.lineTwo{
+    border-left: 2px solid black;
+}
+
+/* FullviewCalendar */
+.playerBar{
+    background-color: white;
+    width: 100%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+
+.bar{
+    background-color: #49BBBD;
+    height: 7px;
+    width: 30%;
+    padding: 2px;
+    border-radius: 20px;
+}
+
+.checkout input{
+    border: 1px solid rgba(128, 128, 128, 0.471);
+    border-radius: 5px;
+    padding-left: 5px;
+    height: 40px;
+}
+
+/* checkout */
+.lines{
+    border-bottom: 1px solid rgba(128, 128, 128, 0.47);
+    margin: 10px 0;
+}
+
+.lineD{
+    border-bottom: 1px solid black;
+    margin: 10px 0;
+}
+
