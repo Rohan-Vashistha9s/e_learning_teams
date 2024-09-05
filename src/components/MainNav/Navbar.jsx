@@ -2,6 +2,11 @@ import React, {useState} from 'react';
 import "./Navbar.css";
 import { Link } from 'react-router-dom';
 import image12 from "../assest/media/image 12.png";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleDown, faBarsStaggered, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
+// import { faSquare } from '@fortawesome/free-regular-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
+
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +20,7 @@ function Navbar() {
       <header className="other-header">
         <div className="logo">
           <div className="head-icon">
-            <i className="fa-thin fa-square"></i>
+          {/* <FontAwesomeIcon icon={faSquare} /> */}
           </div>
           <h4 className="w-[200px] text-white font-medium">TOTC</h4>
         </div>
@@ -39,10 +44,10 @@ function Navbar() {
             <li>
             <div className="relative inline-block text-left">
       <button
-        className="btn dropdown-toggle bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none"
+        className="btn dropdown-toggle bg-blue-500 text-white px-4 py-1 rounded-md focus:outline-none"
         onClick={toggleDropdown}
       >
-        Others
+        Others <FontAwesomeIcon icon={faChevronDown} />
       </button>
 
       {isOpen && (
@@ -102,19 +107,19 @@ function Navbar() {
                   <img src={image12} alt="user" />
                 </div>
                 <div>
-                  <p> Lina <i className="fa-regular fa-angle-down" style={{ color: '#161718' }}></i></p>
+                  <p> Lina <FontAwesomeIcon icon={faAngleDown} style={{ color: '#161718' }} /></p>
                 </div>
               </div>
             </li>
           </ul>
-          <i className="fa-regular fa-bars-staggered" style={{ color: '#ffffff' }} id="menu-btn"></i>
+          <FontAwesomeIcon icon={faBarsStaggered} style={{ color: '#ffffff' }} id="menu-btn" />
         </div>
       </header>
 
       {/* Mobile menu bar */}
       <div id="mob-menu">
         <div className="icon">
-          <i className="fa-light fa-circle-xmark" id="close-btn"></i>
+        <FontAwesomeIcon icon={faCircleXmark} id="close-btn" />
         </div>
         <div className="link-sec">
           <ul>
