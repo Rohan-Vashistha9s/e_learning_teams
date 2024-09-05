@@ -5,6 +5,7 @@ import image12 from "../assest/media/image 12.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faBarsStaggered, faCircleXmark } from '@fortawesome/free-solid-svg-icons';
 // import { faSquare } from '@fortawesome/free-regular-svg-icons';
+import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
 
 function Navbar() {
@@ -43,10 +44,10 @@ function Navbar() {
             <li>
             <div className="relative inline-block text-left">
       <button
-        className="btn dropdown-toggle bg-blue-500 text-white px-4 py-2 rounded-md focus:outline-none"
+        className="btn dropdown-toggle bg-blue-500 text-white px-4 py-1 rounded-md focus:outline-none"
         onClick={toggleDropdown}
       >
-        Others
+        Others <FontAwesomeIcon icon={faChevronDown} />
       </button>
 
       {isOpen && (
