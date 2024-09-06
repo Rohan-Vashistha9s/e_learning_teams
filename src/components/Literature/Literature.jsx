@@ -107,13 +107,13 @@ const Literature = () => {
   </div>
 </div>
 
-<div className="max-w-7xl mx-4 sm:mx-20 mt-10 p-4">
+<div className="max-w-7xl mx-4 sm:mx-20 sm:mt-6 mt-[200px] p-4">
   <div className="flex flex-wrap space-x-2 mb-6">
     {Object.keys(tabImages).map((tab) => (
       <button
         key={tab}
         onClick={() => setSelectedTab(tab)}
-        className={`px-4 sm:px-8 py-2 rounded-lg font-bold ${selectedTab === tab ? 'bg-teal-500 text-white' : 'bg-gray-200 text-gray-500'}`}
+        className={`px-4 sm:px-8 sm:my-3 my-2 py-2 rounded-lg font-bold ${selectedTab === tab ? 'bg-teal-500 text-white' : 'bg-gray-200 text-gray-500'}`}
       >
         {tab}
       </button>

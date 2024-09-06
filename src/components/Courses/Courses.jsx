@@ -192,49 +192,56 @@ const Courses = () => {
             </div>
         </section>
 
-<section className="recommended">
-            <div className="recommended-top">
-                <h2>Recommended for you</h2>
-                <h6>See all</h6>
-            </div>
-            <div className="relative flex items-center justify-center">
-                <div className="overflow-hidden w-full">
-                    <div className="flex transition-transform ease-in-out duration-500" style={{ transform: `translateX(-${currIndex * (100 / 4)}%)` }}>
-                        {cards.map((card, index) => (
-                            <div className="recommended-card card flex-shrink-0 w-1/4 p-4" key={index}>
-                                <img src={card.imgSrc} alt="Lesson" />
-                                <div className="design-time">
-                                    <div className="design">
-                                        <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-4' />
-                                        {card.design}
-                                    </div>
-                                    <div className="time">
-                                        <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-4' />
-                                        {card.time}
-                                    </div>
-                                </div>
-                                <h1>{card.title}</h1>
-                                <p>{card.description}</p>
-                                <div className="review">
-                                    <div className="person-review">
-                                        <img src={card.reviewerImg} alt="" />
-                                        <h4>{card.reviewerName}</h4>
-                                    </div>
-                                    <div className="course-price">
-                                        <p>{card.oldPrice}</p>
-                                        <p>{card.newPrice}</p>
-                                    </div>
-                                </div>
+        <section className="recommended">
+    <div className="recommended-top flex justify-between items-center">
+        <h2>Recommended for you</h2>
+        <h6>See all</h6>
+    </div>
+    <div className="relative flex items-center justify-center">
+        <div className="overflow-hidden w-full">
+            <div 
+                className="flex transition-transform ease-in-out duration-500"
+                style={{ transform: `translateX(-${currIndex * (100 / 4)}%)` }}
+            >
+                {cards.map((card, index) => (
+                    <div 
+                        className="recommended-card card flex-shrink-0 p-4 w-full sm:w-full md:w-1/2 lg:w-1/4" 
+                        key={index}
+                    >
+                        <img src={card.imgSrc} alt="Lesson" />
+                        <div className="design-time flex justify-between items-center my-2">
+                            <div className="design flex items-center">
+                                <FontAwesomeIcon icon={faBorderAll} className='text-gray-300 mr-2' />
+                                {card.design}
                             </div>
-                        ))}
+                            <div className="time flex items-center">
+                                <FontAwesomeIcon icon={faClock} className='text-gray-300 mr-2' />
+                                {card.time}
+                            </div>
+                        </div>
+                        <h1 className="text-xl font-semibold">{card.title}</h1>
+                        <p className="text-gray-600">{card.description}</p>
+                        <div className="review flex justify-between items-center mt-4">
+                            <div className="person-review flex items-center">
+                                <img src={card.reviewerImg} alt="" className="w-10 h-10 rounded-full mr-2" />
+                                <h4 className="text-sm font-medium">{card.reviewerName}</h4>
+                            </div>
+                            <div className="course-price text-right">
+                                <p className="line-through text-gray-400">{card.oldPrice}</p>
+                                <p className="text-red-500 font-bold">{card.newPrice}</p>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                ))}
             </div>
-            <div className="pagination">
-                <button className="prev pp2">&#10094;</button>
-                <button className="next nn2">&#10095;</button>
-            </div>
-        </section>
+        </div>
+    </div>
+    <div className="pagination flex justify-center mt-4">
+        <button className="prev pp2 mr-2 text-gray-500 hover:text-black">&#10094;</button>
+        <button className="next nn2 ml-2 text-gray-500 hover:text-black">&#10095;</button>
+    </div>
+</section>
+
 
         <section className="choice choice1">
             <div className="choice-top">

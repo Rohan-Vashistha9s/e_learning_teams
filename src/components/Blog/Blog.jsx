@@ -44,13 +44,6 @@ const Blog = () => {
     },
   ];
 
-  const handlePrev = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === 0 ? cards.length - 1 : prevIndex - 1));
-  };
-
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) => (prevIndex === cards.length - 1 ? 0 : prevIndex + 1));
-  };
   return (
     <div>
         <Navbar />
@@ -90,63 +83,69 @@ const Blog = () => {
     </div>
 
     <div className="main-container p-4">
-      <div className="container mx-auto">
-        <div className="header flex justify-between items-center mb-4">
-          <h3 className="text-3xl text-gray-600">Related Blog</h3>
-          <a href="#" className="see-all text-teal-500">See all</a>
+  <div className="container mx-auto">
+    <div className="header flex justify-between items-center mb-4">
+      <h3 className="text-3xl text-gray-600">Related Blog</h3>
+      <a href="#" className="see-all text-teal-500">See all</a>
+    </div>
+
+    {/* Responsive Cards */}
+    <div className="cards slider flex flex-col lg:flex-row space-y-4 lg:space-y-0 lg:space-x-4 overflow-hidden">
+      <div className="card w-full lg:w-1/2">
+        <div className="image-container">
+          <img src={cards[currentIndex].imgSrc} alt="Card Image" className="img-fluid rounded-lg" />
         </div>
-        <div className="cards slider flex space-x-4 overflow-hidden">
-          <div className="card w-1/2">
-            <div className="image-container">
-              <img src={cards[currentIndex].imgSrc} alt="Card Image" className="img-fluid rounded-lg" />
-            </div>
-            <div className="content mt-4">
-              <h3 className="font-semibold text-lg">{cards[currentIndex].title}</h3>
-              <div className="author-info flex items-center mt-2">
-                <img src={cards[currentIndex].authorImg} alt="Author" className="w-8 h-8 rounded-full mr-2" />
-                <span>{cards[currentIndex].authorName}</span>
-              </div>
-              <p className="mt-2 text-gray-600">
-                ClassName, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
-              </p>
-              <div className="card-view flex justify-between items-center mt-4">
-                <a href="#" className="text-teal-500">Read More</a>
-                <div className="views flex items-center">
-                <img src={eye} alt="" className='w-4' />
-                  <span className="ml-2">{cards[currentIndex].views}</span>
-                </div>
-              </div>
-            </div>
+        <div className="content mt-4">
+          <h3 className="font-semibold text-lg">{cards[currentIndex].title}</h3>
+          <div className="author-info flex items-center mt-2">
+            <img src={cards[currentIndex].authorImg} alt="Author" className="w-8 h-8 rounded-full mr-2" />
+            <span>{cards[currentIndex].authorName}</span>
           </div>
-          <div className="card w-1/2">
-            <div className="image-container">
-              <img src={cards[(currentIndex + 1) % cards.length].imgSrc} alt="Card Image" className="img-fluid rounded-lg" />
-            </div>
-            <div className="content mt-4">
-              <h3 className="font-semibold text-lg">{cards[(currentIndex + 1) % cards.length].title}</h3>
-              <div className="author-info flex items-center mt-2">
-                <img src={cards[(currentIndex + 1) % cards.length].authorImg} alt="Author" className="w-8 h-8 rounded-full mr-2" />
-                <span>{cards[(currentIndex + 1) % cards.length].authorName}</span>
-              </div>
-              <p className="mt-2 text-gray-600">
-                ClassName, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
-              </p>
-              <div className="card-view flex justify-between items-center mt-4">
-                <a href="#" className="text-teal-500">Read More</a>
-                <div className="views flex items-center">
-                <img src={eye} alt="" className='w-4' />
-                  <span className="ml-2">{cards[(currentIndex + 1) % cards.length].views}</span>
-                </div>
-              </div>
+          <p className="mt-2 text-gray-600">
+            ClassName, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
+          </p>
+          <div className="card-view flex justify-between items-center mt-4">
+            <a href="#" className="text-teal-500">Read More</a>
+            <div className="views flex items-center">
+              <img src={eye} alt="" className="w-4" />
+              <span className="ml-2">{cards[currentIndex].views}</span>
             </div>
           </div>
         </div>
-        <div className="pagination">
-                <button className="prev pp2">&#10094;</button>
-                <button className="next nn2">&#10095;</button>
+      </div>
+
+      <div className="card w-full lg:w-1/2">
+        <div className="image-container">
+          <img src={cards[(currentIndex + 1) % cards.length].imgSrc} alt="Card Image" className="img-fluid rounded-lg" />
+        </div>
+        <div className="content mt-4">
+          <h3 className="font-semibold text-lg">{cards[(currentIndex + 1) % cards.length].title}</h3>
+          <div className="author-info flex items-center mt-2">
+            <img src={cards[(currentIndex + 1) % cards.length].authorImg} alt="Author" className="w-8 h-8 rounded-full mr-2" />
+            <span>{cards[(currentIndex + 1) % cards.length].authorName}</span>
+          </div>
+          <p className="mt-2 text-gray-600">
+            ClassName, launched less than a year ago by Blackboard co-founder Michael Chasen, integrates exclusively...
+          </p>
+          <div className="card-view flex justify-between items-center mt-4">
+            <a href="#" className="text-teal-500">Read More</a>
+            <div className="views flex items-center">
+              <img src={eye} alt="" className="w-4" />
+              <span className="ml-2">{cards[(currentIndex + 1) % cards.length].views}</span>
             </div>
+          </div>
+        </div>
       </div>
     </div>
+
+    {/* Pagination */}
+    <div className="pagination flex mt-4">
+      <button className="prev pp2">&#10094;</button>
+      <button className="next nn2">&#10095;</button>
+    </div>
+  </div>
+</div>
+
 
     <section className="choice choice2">
         <div className="choice-top">
